@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "author": "Projeto IoT - Monitor de Clima",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-arduino-uno", "id": "uno", "top": 0, "left": 0, "attrs": {} },
+    { "type": "wokwi-dht22", "id": "dht1", "top": -163.2, "left": 220, "attrs": { "temperature": "25", "humidity": "60" } },
+    { "type": "wokwi-led", "id": "led1", "top": -138, "left": 42, "attrs": { "color": "red" } },
+    { "type": "wokwi-resistor", "id": "r1", "top": -72, "left": 76.8, "rotate": 90, "attrs": { "value": "220" } },
+    { "type": "wokwi-buzzer", "id": "bz1", "top": -160, "left": 120, "attrs": { "volume": "0.3" } }
+  ],
+  "connections": [
+    [ "dht1:VCC", "uno:5V", "red", [] ],
+    [ "dht1:GND", "uno:GND.2", "black", [] ],
+    [ "dht1:SDA", "uno:2", "green", [] ],
+    [ "uno:8", "led1:A", "orange", [] ],
+    [ "led1:C", "r1:1", "black", [] ],
+    [ "r1:2", "uno:GND.1", "black", [] ],
+    [ "uno:7", "bz1:2", "purple", [] ],
+    [ "bz1:1", "uno:GND.1", "black", [] ]
+  ],
+  "dependencies": {}
+}
